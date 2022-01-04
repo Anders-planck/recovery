@@ -7,6 +7,15 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@babel/runtime": "^7.16.7",
+    "@kangc/v-md-editor": "^1.7.8",
+    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/line-clamp": "^0.3.0",
+    "@toast-ui/vue-editor": "^3.1.2",
+    "@voraciousdev/vue-markdown-editor": "^0.3.1",
+    "autoprefixer": "^9.8.8",
+    "postcss": "^7.0.39",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^3",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"

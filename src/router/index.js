@@ -1,7 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-
+import New from '../views/new.vue'
+import Forum from '../views/Forum.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
+import ArticleView from '../views/ArticleView.vue'
+import Material from '../views/Material.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -9,6 +14,36 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
+  },
+  {
+    path: '/material',
+    name: 'Material',
+    component: Material
+  },
+  {
+    path: '/forum',
+    name: 'forum',
+    component: Forum
+  },
+  {
+    path: '/forum/:id',
+    name: 'article',
+    component: ArticleView
+  },
+  {
+    path: '/new',
+    name: 'new',
+    component: New
   },
   {
     path: '/about',
