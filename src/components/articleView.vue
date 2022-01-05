@@ -3,7 +3,7 @@
         style="min-width:300px"
         class="grid grid-cols-3 gap-2  bg-white group hover:rotate-2 hover:shadow-xl  rounded-md hover:skew-2 transition-all duration-200   border border-gray-300 transform hover:scale-95  hover:border-black shadow-sm">
         <div class="w-full col-span-1 ">
-            <img  class="w-full  h-48 object-cover" :src="article.image.url" :alt="article.image.name">
+            <img  class="w-full  h-full object-cover" :src="article.image.url" :alt="article.image.name">
         </div>
         <div class="w-full col-span-2 pb-2"> 
             <span
