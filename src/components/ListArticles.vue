@@ -11,44 +11,35 @@
               class="w-full border-0  rounded-full focus:ring-0 focus:border-transparent border-gray-300 text-black placeholder-gray-500">
             </div>
           </div>
-        <div class="grid grid-cols-3 z-10 bg-white p-8 gap-x-8 gap-y-8">
-            <a 
+        <div class="grid  grid-cols-2  z-10 bg-white p-8 gap-x-8 gap-y-8">
+            <article-view 
+            class="col-span-2 xl:col-span-1"
             v-for="(article,index) in filterArticles" 
-            :href="'/forum/'+article.id"
             :key="article.id"
-            class="bg-white group hover:rotate-2 hover:shadow-xl  rounded-md hover:skew-2 transition-all duration-200 col-span-2 md:col-span-1  border border-gray-300 transform hover:scale-95  hover:border-black p-4 shadow-sm">
-                <span
-                    class="group-hover:font-bold group-hover:text-black  inline-block  py-2 px-4 rounded-full border group-hover:border-black border-gray-300 my-4">{{index}}</span>
-                <h1 class="text-xl group-hover:underline text-black tracking-wide mb-2"> {{article.title}}</h1>
-                <p class="text-sm text-gray-500 line-clamp-3">
-                    {{article.description}}
-                </p>
-            </a>
+            :index="index" 
+            :article="article"/>
         </div>
     </div>
 </template>
 
 <script>
-var posts = []
-for (let i = 0; i < 8; i++) {
-    let post = {
-        id: i,
-        title:  'Lorem, ipsum dolor '+i,
-        description:'Lorem ipsum dolor sit amet.consectetur adipisicing elit.Impedit nihil tempore a optio? Totam, sequi.Impedit nihil tempore a optio? Totam, sequi.'
-    }
-    posts.push(post)
-}
+import articleView from "../components/articleView.vue"
 export default {
     name:'listArticles',
     data:()=>({
         search:'',
-        Articles:posts,
     }),
+    components:{
+        "article-view":articleView
+    },
+    created(){
+        this.$store.dispatch("getArticles")
+    },
     computed:{
         filterArticles(){
-            if(this.Articles.length!=0){
-                return this.Articles.filter((a)=> {
-                    if(a.title.toLowerCase().includes(this.search.toLowerCase()) || a.description.toLowerCase().includes(this.search.toLowerCase())) 
+            if(this.$store.state.articles && this.$store.state.articles.length!=0){
+                return this.$store.state.articles.filter((a)=> {
+                    if(a.title.toLowerCase().includes(this.search.toLowerCase())) 
                         return a
                 })
             }

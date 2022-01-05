@@ -1,10 +1,10 @@
 <template>
-    <div class="w-full flex flex-col justify-center items-center bg-gunmetal polygone h">
-        <div class="p-4 text-center break-words capitalize underline text-white tracking-wider text-4xl font-black   flex justify-center items-center">
+    <div class="w-full flex flex-col justify-center items-center bg-white text-black polygone h">
+        <div class="p-4 text-center break-words capitalize underline  tracking-wider text-4xl font-black   flex justify-center items-center">
             {{title}}.
         </div>
-        <p  v-if="description" class="w-2/3 text-md text-white break-words">
-            {{description}}
+        <p  v-if="description" class="w-2/3 text-md text-center  break-words">
+            {{description}}.
         </p>
     </div>
 </template>
@@ -28,6 +28,6 @@ export default {
 
 <style lang='scss' scoped>
 .h{
-  min-height: 250px;
+  min-height: 150px;
 }
 </style>

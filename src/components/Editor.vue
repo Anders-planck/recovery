@@ -1,9 +1,11 @@
 <template>
   <div class="w-full">
     <v-md-editor v-if="mode!='preview'"
-    left-toolbar="undo redo clear | h bold italic strikethrough quote | ul ol table hr | link image code"
-    right-toolbar="emoji todo-list tip | preview toc sync-scroll fullscreen"
+    left-toolbar="undo redo clear | h bold italic strikethrough quote | ul ol table hr | link code "
+    right-toolbar="emoji todo-list tip | preview toc sync-scroll fullscreen |  image"
     v-model="value"
+    :disabled-menus="[]"
+    @upload-image="imageHandle"
     @copy-code-success="handleCopyCodeSuccess"
     :mode="mode"
     @change="change"
@@ -26,6 +28,11 @@
 </template>
 
 <script>
+
+import firebase from 'firebase/compat/app';
+import "firebase/compat/storage"
+import 'firebase/compat/firestore';
+import db from '../firebase/firebaseInit'
   export default {
     name:"Editor",
     props:{
@@ -56,6 +63,26 @@
       },
       change(text,html){
           this.$emit("update:model",text)
+      },
+      imageHandle(event, insertImage,files){
+        console.log(files[0])
+        const storageRef = firebase.storage().ref();
+        const file= files[0]
+        const docRef = storageRef.child(`document/forum/photo/${file.name}`);
+         docRef.put(file).on("state_changed",
+         (snapshot)=>{
+          console.log(snapshot)
+         },(err)=>{
+           console.log(err)
+         },async ()=>{
+          const downloadUrl = await docRef.getDownloadURL();
+          insertImage({
+            url: downloadUrl,
+            desc: 'desc',
+            width: 'auto',
+            height: 'auto',
+          });
+         })
       }
     },
   };

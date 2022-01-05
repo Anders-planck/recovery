@@ -48,6 +48,8 @@ import '@kangc/v-md-editor/lib/plugins/emoji/emoji.css';
 import createTipPlugin from '@kangc/v-md-editor/lib/plugins/tip/index';
 import '@kangc/v-md-editor/lib/plugins/tip/tip.css';
 
+
+
 VMdEditor.use(createTipPlugin());
 VMdEditor.use(createEmojiPlugin());
 VMdEditor.use(createLineNumbertPlugin());
@@ -69,12 +71,28 @@ VMdEditor.use(vuepressTheme, {
   },
 });
 
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'animate.css';
+import Vue2Editor from "vue2-editor";
+
+// @ts-ignore
+Vue.use(Vue2Editor);
+
 Vue.use(VMdEditor);
 Vue.config.productionTip = false
 
-new Vue({
-  router,
-  store,
-  // @ts-ignore
-  render: function (h) { return h(App) }
-}).$mount('#app')
+let app;
+firebase.auth().onAuthStateChanged( () =>{
+  if(!app){
+    new Vue({
+      router,
+      store,
+      // @ts-ignore
+      render: function (h) { return h(App) }
+    }).$mount('#app')
+  }
+})
+
+
+

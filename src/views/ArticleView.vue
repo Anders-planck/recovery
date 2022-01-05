@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <div class="bg-white border border-t-0 border-gray-200 shadow-lg w-full md:w-10/12 lg:w-6/12  mb-16 mx-auto p-2 pt-0">
-          <hero-title :title="title +'  '+ $route.params.id" :description="description" class="mb-8"/>
-
+  <div v-if="article">
+    <div class="bg-white border  border-gray-200 shadow-sm w-full md:w-10/12 lg:w-6/12  mb-16 mx-auto p-2 pt-0">
+          <hero-title :title="article.title" :description="article.description"  class="mb-8"/>
           <div class="w-full p-4 mx-auto space-y-4 flex flex-col justify-start items-start ">
-            <!-- <h1 class="text-3xl tracking-wider underline font-bold">{{title}}.</h1> -->
-            <!-- <p class="breack-word">{{description}}.</p> -->
-            <Editor 
-            mode="preview" 
-            :model="content" />
+            <!-- <h1 class="text-3xl tracking-wider underline font-bold">{{article.title}}.</h1> -->
+            <!-- <div class="breack-words" v-html="article.description"></div> -->
+              <span class="text-sm">Post on : {{new Date(article.date).toLocaleString('en-us',{dateStyle:"long"})}} </span>
+              <Editor 
+              mode="preview" 
+              :model="article.content" />
           </div>
-        </div>
+      </div>
   </div>
 </template>
 
@@ -23,30 +23,13 @@ export default {
         HeroTitle,
         Editor
     },
-    data:() => ({
-        content:'',
-        description:'',
-        title:'',
-        preview:false,
-    }),
-    watch:{
-        content(val,oldVal){
-        localStorage.setItem("Form-content",val)
-        },
-        title(val,oldVal){
-        localStorage.setItem("Form-title",val)
-        },
-        description(val,oldVal){
-        localStorage.setItem("Form-description",val)
-        }
-    },
     created(){
-        let t
-        let d
-        let c
-        if((t = localStorage.getItem("Form-title"))) this.title = t
-        if((d = localStorage.getItem("Form-description"))) this.description = d
-        if((c = localStorage.getItem("Form-content"))) this.content = c
+      this.$store.dispatch("getArticles")
+    },
+    computed:{
+      article(){
+        return this.$store.state.articles.filter(a => a.id == this.$route.params.id)[0]
+      }
     }
 }
 </script>

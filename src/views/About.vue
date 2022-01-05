@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white border border-t-0 border-gray-200 shadow-lg w-full md:w-9/12 lg:w-6/12 mb-16 mx-auto">
+  <div class="bg-white border  border-gray-200 shadow-sm w-full md:w-9/12 lg:w-6/12 mb-16 mx-auto">
     <hero-title title="About Us"/>
   </div>
 </template>
