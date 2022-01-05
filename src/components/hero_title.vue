@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full flex flex-col justify-center items-center bg-white text-black polygone h">
+    <div class="w-full flex flex-col pb-8 justify-center items-center bg-white text-black polygone h">
         <div class="p-4 text-center break-words capitalize underline  tracking-wider text-4xl font-black   flex justify-center items-center">
             {{title}}.
         </div>
@@ -29,5 +29,6 @@ export default {
 <style lang='scss' scoped>
 .h{
   min-height: 150px;
+  height: auto
 }
 </style>

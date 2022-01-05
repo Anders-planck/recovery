@@ -7,7 +7,8 @@
             <!-- <div class="breack-words" v-html="article.description"></div> -->
               <span class="text-sm">Post on : {{new Date(article.date).toLocaleString('en-us',{dateStyle:"long"})}} </span>
               <Editor 
-              mode="preview" 
+              mode="preview"
+              
               :model="article.content" />
           </div>
       </div>

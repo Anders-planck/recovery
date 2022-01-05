@@ -173,6 +173,7 @@ export default {
             url: downloadUrl
           })
         })
+        this.$store.dispatch("getArticles")
         this.$router.push(`/forum`)
         return;
       }

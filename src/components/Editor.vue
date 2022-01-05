@@ -20,6 +20,7 @@
     left-toolbar="undo redo clear | h bold italic strikethrough quote | ul ol table hr | link image code"
     right-toolbar="emoji todo-list tip | preview toc sync-scroll fullscreen"
     v-model="model"
+    default-show-toc
     @copy-code-success="handleCopyCodeSuccess"
     :mode="mode"
     class="font-sans">
