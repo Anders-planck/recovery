@@ -43,7 +43,7 @@
                     <transition 
                     enter-active-class="animate__animated animate__flipInX" 
                     leave-active-class="animate__animated animate__flipOutX">
-                        <div v-if="showMenuInfoUser" style="width:300px;bottom: -150px;left:-266px" class="absolute block  p-2 bg-black text-white">
+                        <div v-if="showMenuInfoUser" style="width:300px;bottom: -170px;left:-266px" class="absolute block  p-2 bg-black text-white">
                             <div class="grid grid-cols-2 gap-4 p-2">
                                 <h1 class="col-span-1 flex border-r-2 border-gray-400  justify-center items-center text-xl uppercase   text-white tracking-wider  h-full font-medium transform cursor-pointer  hover:scale-95">
                                     <span class="border-2 border-white rounded-full p-2">{{this.$store.state.user.initials}}</span>
