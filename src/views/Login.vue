@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full md:w-9/12 lg:w-6/12 mb-16 mx-auto">
+  <div class="w-full md:w-9/12 lg:w-6/12 xl:w-4/12 mb-16 mx-auto">
     <hero-title title="Login "/>
 
     <login-register state="LOGIN" class="my-32"/>

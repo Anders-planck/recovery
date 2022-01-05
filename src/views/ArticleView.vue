@@ -1,6 +1,6 @@
 <template>
   <div v-if="article">
-    <div class="bg-white border  border-gray-200 shadow-sm w-full md:w-10/12 lg:w-6/12  mb-16 mx-auto p-2 pt-0">
+    <div class="bg-white border  border-gray-200 shadow-sm w-full md:w-10/12 lg:w-6/12 xl:w-4/12  mb-16 mx-auto p-2 pt-0">
           <hero-title :title="article.title" :description="article.description"  class="mb-8"/>
           <div class="w-full p-4 mx-auto space-y-4 flex flex-col justify-start items-start ">
             <!-- <h1 class="text-3xl tracking-wider underline font-bold">{{article.title}}.</h1> -->
@@ -8,7 +8,7 @@
               <span class="text-sm">Post on : {{new Date(article.date).toLocaleString('en-us',{dateStyle:"long"})}} </span>
               <Editor 
               mode="preview"
-              
+
               :model="article.content" />
           </div>
       </div>

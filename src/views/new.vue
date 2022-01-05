@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="bg-white border  border-gray-200 shadow-lg w-full md:w-10/12 lg:w-6/12  mb-16 mx-auto p-2 pt-0">
+      class="bg-white border  border-gray-200 shadow-lg w-full md:w-10/12 lg:w-6/12 xl:w-4/12  mb-16 mx-auto p-2 pt-0">
       <hero-title :title="preview && title ? title : 'new Article'"
         :description="preview && description ? description : null" />
       <div class="mb-8 w-full flex space-x-4 bg-white px-8 py-2 md:p-4 justify-end items-center text-right">
